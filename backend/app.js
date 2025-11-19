@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const summarizeRoutes = require('../backend/routes/summarizeRoutes');
 const app = express();
 const port = 3000;
 
@@ -14,6 +15,7 @@ const journalRoutes = require('../backend/routes/journalRoutes');
 
 // Gunakan routes
 app.use('/api/journals', journalRoutes);
+app.use('/api/summarize', summarizeRoutes);
 
 // Jalankan server
 app.listen(port, () => {
