@@ -15,10 +15,11 @@ Ringkasan harus mencakup:
 - Hasil utama
 - Kesimpulan
 - Kontribusi penelitian
+
     `;
 
     const payload = {
-        model: "qwen2.5:latest",
+        model: "qwen3:latest",
         prompt,
         stream: false
     };

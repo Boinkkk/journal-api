@@ -5,11 +5,13 @@ export async function summarizePDF(req, res) {
     try {
         const filePath = req.file.path;
 
-        console.log("📄 Mengekstrak teks dari PDF...");
+        console.log("Mengekstrak teks dari PDF...");
         const extractedText = await extractTextFromPDF(filePath);
 
-        console.log("🧠 Menghasilkan ringkasan...");
+        console.log("Menghasilkan ringkasan...");
         const summary = await summarizeText(extractedText);
+
+        console.log(" Ringkasan berhasil dibuat.");
 
         return res.json({
             success: true,
