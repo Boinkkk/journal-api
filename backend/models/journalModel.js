@@ -7,5 +7,24 @@ module.exports = {
 
   getById: (id, callback) => {
     db.query("SELECT * FROM journals WHERE id = ?", [id], callback);
+  },
+  postJournal: (data, callback) => {
+    const { title, authors, publication_year, sinta_level, pdf_url } = data;
+    db.query(
+      "INSERT INTO journals (title, authors, publication_year, sinta_level, pdf_url) VALUES (?, ?, ?, ?, ?)",
+      [title, authors, publication_year, sinta_level, pdf_url],
+      callback
+    );
+  },
+  DeleteJournal: (id, callback) => {
+    db.query("DELETE FROM journals WHERE id = ?", [id], callback);
+  },
+  editJournal: (id, data, callback) => {
+    const { title, authors, publication_year, sinta_level, pdf_url } = data;
+    db.query(
+      "UPDATE journals SET title = ?, authors = ?, publication_year = ?, sinta_level = ?, pdf_url = ? WHERE id = ?",
+      [title, authors, publication_year, sinta_level, pdf_url, id],
+      callback
+    );  
   }
 };
